@@ -1,5 +1,7 @@
 package net.camtrunet.eventguay.dominio;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,13 +21,28 @@ public class Tipoevento {
 	private String detalle;
 	private Boolean estado;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoeventoId")
+	
+	public Tipoevento() {
+
+	}
+	
+	
+	public Tipoevento(Integer tipoeventoId, String detalle) {
+		super();
+		this.tipoeventoId = tipoeventoId;
+		this.detalle = detalle;
+	}
+	
+	
+   @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoeventoId")
+	private List<Evento> eventoCollection;
 	
 	
 	
 	public Integer getTipoeventoId() {
 		return tipoeventoId;
 	}
+
 	public void setTipoeventoId(Integer tipoeventoId) {
 		this.tipoeventoId = tipoeventoId;
 	}

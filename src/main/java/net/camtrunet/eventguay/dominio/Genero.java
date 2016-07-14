@@ -25,6 +25,18 @@ public class Genero {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "generoId")
     private List<Usuario> usuario;
 
+    
+	public Genero() {
+
+	}
+    
+
+	public Genero(Integer generoId, String descripcion) {
+		super();
+		this.generoId = generoId;
+		this.descripcion = descripcion;
+	}
+
 	public Integer getGeneroId() {
 		return generoId;
 	}

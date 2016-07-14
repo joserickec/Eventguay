@@ -36,6 +36,22 @@ public class Evento {
     private List<Eventousuario> eventousuario;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "eventoId")
     private List<Fotoseventos> fotoseventos;
+    
+    
+	public Evento() {
+
+	}
+	
+    
+	public Evento(Integer eventoId, String titulo) {
+		super();
+		this.eventoId = eventoId;
+		this.titulo = titulo;
+	}
+	
+	
+	
+	
 	public Integer getEventoId() {
 		return eventoId;
 	}

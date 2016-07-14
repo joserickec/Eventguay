@@ -24,6 +24,23 @@ public class Fotos {
     private List<Fotoseventos> fotoseventos;
 
     
+    
+    
+    
+	public Fotos() {
+
+	}
+    
+    
+    
+    
+	public Fotos(Integer fotoId, String foto) {
+		super();
+		this.fotoId = fotoId;
+		this.foto = foto;
+	}
+	
+	
 	public Integer getFotoId() {
 		return fotoId;
 	}

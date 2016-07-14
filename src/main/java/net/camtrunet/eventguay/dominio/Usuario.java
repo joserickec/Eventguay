@@ -37,6 +37,21 @@ public class Usuario {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioId")
     private List<Eventousuario> eventousuario;
 
+    
+    
+    
+	public Usuario() {
+
+	}
+    
+    
+    
+	public Usuario(Integer usuarioId, String apellidos) {
+		super();
+		this.usuarioId = usuarioId;
+		this.apellidos = apellidos;
+	}
+
 	public Integer getUsuarioId() {
 		return usuarioId;
 	}
