@@ -27,5 +27,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="/home/webserver/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-hibernate4/2.7.5/jackson-datatype-hibernate4-2.7.5.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

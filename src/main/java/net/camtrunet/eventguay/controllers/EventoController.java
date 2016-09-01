@@ -14,38 +14,27 @@ import net.camtrunet.eventguay.dominio.Evento;
 import net.camtrunet.eventguay.repository.EventoRepository;
 
 @RestController
+@RequestMapping("/eventos")
 public class EventoController {
 
 	@Autowired
 	private EventoRepository eventoRepository;
 	
-
-	@RequestMapping(value="/eventos",method=RequestMethod.POST)
-	public ResponseEntity<?> save(@RequestBody Evento eventos){
-		eventoRepository.save(eventos);
-		return new ResponseEntity<>(HttpStatus.CREATED);
+	@RequestMapping(method=RequestMethod.GET)
+	public ResponseEntity<?> getEventos(){
+		return new ResponseEntity<>(eventoRepository.findAll(),HttpStatus.OK);
 	}
 	
-	
-	@RequestMapping(value="/eventos",method=RequestMethod.GET)
-	public ResponseEntity<?> findAll(@RequestParam(defaultValue="true") boolean control){
-		Iterable<Evento> eventos;
-		
-		if(control)
-			eventos= eventoRepository.findAll();
-		else
-			eventos= eventoRepository.getEvento();
-		
-		return new ResponseEntity<>(eventos,HttpStatus.OK);
+	@RequestMapping(value="/{id}",method=RequestMethod.GET)
+	public ResponseEntity<?> getEvento(@PathVariable int id){
+		return new ResponseEntity<>(eventoRepository.findOne(id),HttpStatus.OK);
 	}
 	
+	@RequestMapping(method=RequestMethod.POST)
+	public ResponseEntity<?> saveEventos(@RequestBody Evento evento){
+		eventoRepository.save(evento);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
 	
-	
-	@RequestMapping(value="/eventos/{titulo}",method=RequestMethod.GET)
-public ResponseEntity<?> findByTitulo(@PathVariable String titulo){
-	Iterable<Evento> eventos= eventoRepository.findByTitulo(titulo);
-	return new ResponseEntity<>(eventos,HttpStatus.OK);
-}
-
 	
 }
